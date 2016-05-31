@@ -1,0 +1,36 @@
+# To-Do
+
+@geral
+
+-- implementar template 
+-- construir models
+-- construir rspec
+
+
+@admin
+
+-- cadastro de usuários
+-- login & logout
+-- atualização de dados & senha
+-- cadastro de entidades
+-- cadastro de cargos da entidade
+-- cadastro de usuários da entidade
+-- cadastro de lista
+-- recuperação de senha
+
+@entity
+
+-- cadastro de usuários 
+-- edição de dados da entidade
+-- cadastro de diretoria
+-- cadastro de membros
+-- recuperação de senha
+-- login & logout
+
+@portal
+
+-- listagem de entidades
+-- visualização de dados da entidade
+-- visualização de membros & diretoria da entidade
+-- visualização de listagem de listas
+-- visualização de lista personalizada
