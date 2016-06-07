@@ -1,1 +1,38 @@
-lista de entidades
+
+%br/
+%br/
+%br/
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-body
+        .row
+          .col-md-12
+            %h1
+              %b Listagem de entidades
+        %hr/
+        .row
+          = simple_form_for url_for, method: :get do |f|
+            .col-md-3
+              = f.input :by_cnpj, label: "CNPJ (somente números)", as: :string, include_blank: 'selecione...', input_html: { name:'by_cnpj', value: params[:by_cnpj]}
+            .col-md-3
+              = f.input :by_acronym, label: "Sigla", as: :string, include_blank: 'selecione...', input_html: { name:'by_acronym', value: params[:by_acronym]}
+            .col-md-3
+              = f.submit "Filtrar", name: nil, class: 'btn btn-primary filter-margin-button btn-sm', data: { disable_with: t(:disable_with)}
+        %hr/
+        .row
+          .col-md-12
+            %table.table.table-striped.table-bordered.table-hover
+              %thead
+                %tr
+                  %th Nº
+                  %th CNPJ
+                  %th Nome
+                  %th Sigla
+              %tbody
+                - @entities.each do |ent|
+                  %tr
+                    %td.col-md-1= ent.id
+                    %td.col-md-2= link_to ent.cnpj.format_cnpj, entity_path(ent)
+                    %td.col-md-4= link_to ent.name, entity_path(ent)
+                    %td.col-md-4= ent.acronym.upcase

@@ -15,9 +15,7 @@
         .row
           = simple_form_for url_for, method: :get do |f|
             .col-md-3
-              = f.input :by_situation, label: "Situação", as: :select, selected: params[:by_situation], include_blank: 'selecione...', input_html: { name:'by_situation'}
-            .col-md-3
-              = f.input :by_cnpj, label: "CNPJ", as: :string, include_blank: 'selecione...', input_html: { name:'by_cnpj', value: params[:by_cnpj]}
+              = f.input :by_cnpj, label: "CNPJ (somente números)", as: :string, include_blank: 'selecione...', input_html: { name:'by_cnpj', value: params[:by_cnpj]}
             .col-md-3
               = f.input :by_acronym, label: "Sigla", as: :string, include_blank: 'selecione...', input_html: { name:'by_acronym', value: params[:by_acronym]}
             .col-md-3
@@ -29,8 +27,19 @@
                 %tr
                   %th Nº
                   %th Nome
+                  %th CNPJ
                   %th Sigla
-                  %th Situação
-                  %th Qtd. Associados
+                  %th Qtd. Assoc.
                   %th Ação
               %tbody
+                - @entities.each do |ent|
+                  %tr
+                    %td.col-md-1= ent.id
+                    %td.col-md-2= ent.cnpj.format_cnpj
+                    %td.col-md-4= ent.name.upcase
+                    %td.col-md-2= ent.acronym
+                    %td.col-md-1
+                    %td.col-md-2
+                      = link_to "", cadastre_path(ent), class: 'btn btn-success btn-sm glyphicon glyphicon-zoom-in'
+                      = link_to "", edit_cadastre_path(ent), class: 'btn btn-primary btn-sm glyphicon glyphicon-pencil'
+                      = link_to "", cadastre_path(ent), method: :delete, class: 'btn btn-danger btn-sm glyphicon glyphicon-remove', data: { confirm: t(:confirm)}

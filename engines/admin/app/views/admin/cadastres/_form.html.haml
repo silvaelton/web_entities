@@ -1,8 +1,57 @@
 = simple_form_for @entity do |f|
   .row
-    .col-md-12
+    .col-md-6
       = f.input :name
+    .col-md-3
+      = f.input :acronym
+    .col-md-3
+      = f.input :cnpj, input_html: { class: 'cnpj' }
+  .row
+    .col-md-3
+      = f.input :telephone
+    .col-md-3
+      = f.input :telephone_optional
+    .col-md-3
+      = f.input :celphone
+    .col-md-3
+      = f.input :celphone_optional
+  .row
+    .col-md-3
+      = f.input :email
+    .col-md-3
+      = f.input :email_optional
+    .col-md-3
+      = f.input :foundation_date, as: :string, input_html: { class: 'date' }
+  %hr/
+  .row
+    .col-md-3 
+      = f.association :state, include_blank: "selecione..."
+    .col-md-6
+      = f.input :city 
+    .col-md-3
+      = f.input :cep 
+  .row
+    .col-md-3
+      = f.input :address 
+    .col-md-3
+      = f.input :complement
+    .col-md-3
+      = f.input :burgh
+    .col-md-2
+      = f.input :number
   .row
     .col-md-12
-      = f.submit :button, class: 'btn btn-success', data: { disable_with: t(:disable_with)}
-      = link_to "Voltar para listagem", admin.cadastres_path, data: { disable_with: t(:disable_with)}
+      = f.input :reference_point
+  %hr/
+  .row
+    .col-md-3
+      = f.input :color, as: :select, collection: Entity::Cadastre.colors.keys, include_blank: false
+    .col-md-3
+      = f.input :password_digest
+    .col-md-3
+      = f.input :password_confirmation
+  %hr/
+  .row
+    .col-md-12
+      = f.button :submit, class: 'btn btn-success', data: { disable_with: t(:disable_with)}
+      = link_to "Voltar para listagem", admin.cadastres_path, data: { disable_with: t(:disable_with)}, class: 'btn btn-default'

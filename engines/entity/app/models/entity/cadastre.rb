@@ -1,6 +1,7 @@
 module Entity
   class Cadastre < ActiveRecord::Base
+    belongs_to :state, class_name: "State"
 
-    validates :name, presence: true
+    enum color: ['azul','amarelo','verde','vermelho','laranja']
   end
 end

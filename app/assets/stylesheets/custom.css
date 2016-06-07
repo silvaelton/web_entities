@@ -1,7 +1,13 @@
+.blue-body {
+  background-color: #2d568a !important;
+}
 .orange-body {
   background-color: #fffaee !important;
 }
 
+label {
+  font-weight: bold !important;
+}
 .navbar {
   border-radius: 0px !important;
 }

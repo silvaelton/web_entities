@@ -10,6 +10,7 @@ gem 'turbolinks'
 gem 'simple_form'
 gem 'haml-rails'
 
+gem 'has_scope'
 gem 'friendly_id', '~> 5.1.0'
 gem 'has_scope'
 gem 'validates_cpf_cnpj'

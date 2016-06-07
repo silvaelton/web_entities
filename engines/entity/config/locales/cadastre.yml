@@ -1,0 +1,27 @@
+pt-BR:
+  activerecord:
+    models:
+      'entity/cadastre': "Entidade"
+    attributes:
+      'entity/cadastre':
+        name: "Nome"
+        acronym: "Sigla"
+        cnpj: "CNPJ"
+        telephone: "Telefone"
+        telephone_optional: "Telefone(opcional)"
+        celphone: "Celular"
+        celphone_optional: "Celular(opcional)"
+        email: "E-mail"
+        email_optional:  "E-mail (opcional)"
+        foundation_date: "Data de fundação"
+        state: "Estado"
+        city: "Cidade"
+        cep: "CEP"
+        address: "Endereço/Logradouro"
+        complement: "Complemento"
+        burgh: "Bairro"
+        number: "Nº"
+        reference_point: "Ponto de referência"
+        color: "Cor"
+        password_digest: "Senha"
+        password_confirmation: "Confirmação da senha"
