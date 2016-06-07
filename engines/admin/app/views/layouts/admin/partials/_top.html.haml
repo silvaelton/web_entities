@@ -1,0 +1,55 @@
+%nav.navbar.navbar-default
+  .container
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{:href => "#{admin.root_path}"}
+        %b Gestor de entidades
+    %ul.nav.navbar-nav.navbar-right
+      %li.dropdown
+        %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+          %b= current_user.email
+          %span.caret
+        %ul.dropdown-menu
+          %li
+            %a{:href => "#"} Alterar meus dados
+          %li.divider{:role => "separator"}
+          %li
+            = link_to "Finalizar sessão", admin.session_path(current_user.id), method: :delete
+%nav.navbar.navbar-default
+  .container
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li.active
+          %a{:href => "#{admin.root_path}"}
+            Principal
+            %span.sr-only (current)
+        %li.dropdown
+          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            Entidades
+            %span.caret
+          %ul.dropdown-menu
+            %li
+              %a{:href => "#{new_entity_path}"} Adicionar entidade
+            %li
+              %a{:href => "#{entities_path}"} Lista de entidades
+        %li.dropdown
+          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            Listas
+            %span.caret
+          %ul.dropdown-menu
+            %li
+              %a{:href => "#{new_list_path}"} Adicionar nova lista
+            %li
+              %a{:href => "#{lists_path}"} Listagem de listas personalizadas
+        %li.dropdown
+          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            Administração
+            %span.caret
+          %ul.dropdown-menu
+            %li
+              %a{:href => "#{users_path}"} Usuários

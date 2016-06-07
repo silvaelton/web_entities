@@ -13,3 +13,5 @@ class CreateAdminUsers < ActiveRecord::Migration
     end
   end
 end
+
+
