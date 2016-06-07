@@ -9,10 +9,6 @@ module Admin
     private
 
     def authenticate!
-      if user_signed_in? && session_controller?
-        redirect_to admin.root_path
-      end
-
       unless user_signed_in?
         redirect_to admin.new_session_path if !session_controller?
       end

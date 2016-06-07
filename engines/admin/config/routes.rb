@@ -1,11 +1,13 @@
 Admin::Engine.routes.draw do
 
-  root 'dashboard#index'
+  root 'cadastres#index'
 
-  resources :entities, path: 'entidades'
-  resources :users,    path: 'usuário'
-  resources :profile,  path: 'perfil'
-  resources :lists,    path: 'listas'
+  resources :cadastres, path: 'entidades'
+  resources :users,     path: 'usuário'
+  resources :profile,   path: 'perfil'
+  resources :lists,     path: 'listas'
 
-  resources :sessions
+  resources :sessions do 
+    collection { delete 'logout' }
+  end
 end

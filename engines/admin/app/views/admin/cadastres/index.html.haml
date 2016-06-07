@@ -1,0 +1,36 @@
+.row
+  .col-md-12
+    %h2 
+      %b Listagem de entidades
+
+    = link_to "+ adicionar nova entidade", new_cadastre_path, class: 'btn btn-success btn-xs'
+%br/
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %b Listagem de entidades cadastradas
+      .panel-body
+        .row
+          = simple_form_for url_for, method: :get do |f|
+            .col-md-3
+              = f.input :by_situation, label: "Situação", as: :select, selected: params[:by_situation], include_blank: 'selecione...', input_html: { name:'by_situation'}
+            .col-md-3
+              = f.input :by_cnpj, label: "CNPJ", as: :string, include_blank: 'selecione...', input_html: { name:'by_cnpj', value: params[:by_cnpj]}
+            .col-md-3
+              = f.input :by_acronym, label: "Sigla", as: :string, include_blank: 'selecione...', input_html: { name:'by_acronym', value: params[:by_acronym]}
+            .col-md-3
+              = f.submit "Filtrar", name: nil, class: 'btn btn-primary filter-margin-button btn-sm', data: { disable_with: t(:disable_with)}
+        .row
+          .col-md-12
+            %table.table.table-striped.table-bordered.table-hover
+              %thead
+                %tr
+                  %th Nº
+                  %th Nome
+                  %th Sigla
+                  %th Situação
+                  %th Qtd. Associados
+                  %th Ação
+              %tbody

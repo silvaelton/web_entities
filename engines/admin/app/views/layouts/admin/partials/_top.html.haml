@@ -1,4 +1,4 @@
-%nav.navbar.navbar-default
+%nav.navbar.navbar-default.navbar-less-bottom
   .container
     / Brand and toggle get grouped for better mobile display
     .navbar-header
@@ -19,24 +19,20 @@
             %a{:href => "#"} Alterar meus dados
           %li.divider{:role => "separator"}
           %li
-            = link_to "Finalizar sessão", admin.session_path(current_user.id), method: :delete
+            = link_to "Finalizar sessão", admin.logout_sessions_path, method: :delete
 %nav.navbar.navbar-default
   .container
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav
-        %li.active
-          %a{:href => "#{admin.root_path}"}
-            Principal
-            %span.sr-only (current)
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             Entidades
             %span.caret
           %ul.dropdown-menu
             %li
-              %a{:href => "#{new_entity_path}"} Adicionar entidade
+              %a{:href => "#{new_cadastre_path}"} Adicionar entidade
             %li
-              %a{:href => "#{entities_path}"} Lista de entidades
+              %a{:href => "#{cadastres_path}"} Lista de entidades
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             Listas

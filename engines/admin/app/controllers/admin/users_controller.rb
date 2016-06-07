@@ -1,7 +1,7 @@
 require_dependency 'admin/application_controller'
 
 module Admin
-  class ListsController < ApplicationController
+  class UsersController < ApplicationController
     
     def index
     end

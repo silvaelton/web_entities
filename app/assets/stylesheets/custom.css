@@ -1,0 +1,25 @@
+.orange-body {
+  background-color: #fffaee !important;
+}
+
+.navbar {
+  border-radius: 0px !important;
+}
+
+.navbar-less-bottom {
+  margin-bottom: 0px !important;
+  border: 0px solid transparent;
+  background-color: #313131 !important;
+}
+
+.navbar-less-bottom a {
+  color: white !important;
+}
+
+.navbar-less-bottom .dropdown-menu a {
+  color: black !important;
+}
+
+.filter-margin-button {
+  margin-top: 29px !important;
+}
