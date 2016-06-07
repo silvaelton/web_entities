@@ -1,9 +1,20 @@
 require_dependency 'admin/application_controller'
 
 module Entity
-  class EntitiesController < ApplicationController
+  class CadastresController < ApplicationController
+  
+    def show
+    end    
     
-    def index
+    def edit
+    end
+    
+    def update
+    end
+
+    private
+
+    def set_params
     end
     
   end

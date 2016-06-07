@@ -10,17 +10,13 @@ module Entity
     private
 
     def authenticate!
-      if user_signed_in? && session_controller?
-        redirect_to entity.root_path
-      end
-
       unless user_signed_in?
         redirect_to entity.new_session_path if !session_controller?
       end
     end
 
     def current_user
-      Admin::User.find(session[:entity_user_id]) rescue nil
+      Entity::Cadastre.find(session[:entity_user_id]) rescue nil
     end
 
     def user_signed_in?

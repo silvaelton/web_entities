@@ -1,7 +1,7 @@
 = simple_form_for @session do |f|
   .row
     .col-md-12
-      = f.input :email, placeholder: "Digite seu e-mail de acesso"
+      = f.input :cnpj, placeholder: "Digite o cnpj da sua entidade", input_html: { class: 'cnpj'}
   .row
     .col-md-12
       = f.input :password, placeholder: "Digite sua senha de acesso"
