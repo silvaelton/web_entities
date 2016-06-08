@@ -2,8 +2,8 @@
 @user.first_name      =  'dev'
 @user.last_name       =  'desk'
 @user.email           = 'dev@dev.com'
-@user.password_digest = 'dev@123456789'
-@user.password_confirmation = 'dev@123456789'
+@user.password_digest = 'd123456789'
+@user.password_confirmation = 'd123456789'
 @user.situation       = 0
 @user.permission      = 0
 
