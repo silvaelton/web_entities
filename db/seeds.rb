@@ -6,8 +6,8 @@
 @user.situation       = 0
 @user.permission      = 0
 
-@user.save
-
+@user.save!
+=begin
 State.create(acronym: "AC", name: "Acre")
 State.create(acronym: 'AL', name: 'Alagoas');
 State.create(acronym: 'AM', name: 'Amazonas');
@@ -35,3 +35,4 @@ State.create(acronym: 'SC', name: 'Santa Catarina');
 State.create(acronym: 'SE', name: 'Sergipe');
 State.create(acronym: 'SP', name: 'São Paulo');
 State.create(acronym: 'TO', name: 'Tocantins');
+=end
