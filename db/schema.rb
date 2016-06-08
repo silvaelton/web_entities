@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160607154247) do
+ActiveRecord::Schema.define(version: 20160608122600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,9 @@ ActiveRecord::Schema.define(version: 20160607154247) do
     t.string   "name"
     t.string   "cpf"
     t.string   "rg"
+    t.date     "born"
+    t.integer  "born_state_id"
+    t.string   "born_city"
     t.integer  "state_id"
     t.string   "city"
     t.string   "address"
@@ -80,6 +83,13 @@ ActiveRecord::Schema.define(version: 20160607154247) do
 
   add_index "entity_directories", ["cadastre_id"], name: "index_entity_directories_on_cadastre_id", using: :btree
   add_index "entity_directories", ["state_id"], name: "index_entity_directories_on_state_id", using: :btree
+
+  create_table "entity_list_cadastres", force: :cascade do |t|
+    t.integer  "cadastre_id"
+    t.integer  "list_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "entity_lists", force: :cascade do |t|
     t.text     "cadastre_id", default: [],              array: true
@@ -118,6 +128,7 @@ ActiveRecord::Schema.define(version: 20160607154247) do
     t.string   "work_city"
     t.string   "work_state_id"
     t.string   "work_address"
+    t.string   "work_cep"
     t.string   "work_complement"
     t.string   "work_telephone"
     t.string   "work_telephone_optional"

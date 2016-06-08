@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    models:
+      'entity/list': "Lista"
+    attributes:
+      'entity/list':
+        name: "Nome"
+        description: "Descrição"
+        color: "Cor"

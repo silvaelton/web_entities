@@ -1,1 +1,24 @@
-listas personalizadas
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-body
+        .row
+          .col-md-12
+            %h1
+              %b Listas
+        %hr/
+        .row
+          .col-md-12
+            %table.table.table-striped.table-bordered.table-hover
+              %thead
+                %tr
+                  %th Nome
+                  %th Descrição
+                  %th Ação
+              %tbody
+                - @lists.each do |list|
+                  %tr
+                    %td.col-md-3= list.name
+                    %td.col-md-6= list.description
+                    %td.col-md-1
+                      = link_to "visualizar", list_path(list)

@@ -1,0 +1,46 @@
+.row
+  .col-md-12
+    %h2 
+      %b Listagem de diretoria
+
+    = link_to "+ adicionar novo membro", new_directory_path, class: 'btn btn-success btn-xs'
+%br/
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %b Listagem de membros da diretoria
+      .panel-body
+        .row
+          = simple_form_for url_for, method: :get do |f|
+            .col-md-3
+              = f.input :by_cpf, label: "CPF (somente números)", as: :string, include_blank: 'selecione...', input_html: { name:'by_cpf', value: params[:by_cpf]}
+            .col-md-3
+              = f.input :by_name, label: "Nome", as: :string, include_blank: 'selecione...', input_html: { name:'by_name', value: params[:by_name]}
+            .col-md-3
+              = f.input :by_job, label: "Situação", as: :select, collection: Entity::Directory.jobs, selected: params[:by_job], include_blank: 'selecione...', input_html: { name:'by_job'}
+            .col-md-3
+              = f.submit "Filtrar", name: nil, class: 'btn btn-primary filter-margin-button btn-sm', data: { disable_with: t(:disable_with)}
+        .row
+          .col-md-12
+            %table.table.table-striped.table-bordered.table-hover
+              %thead
+                %tr
+                  %th Nome
+                  %th CPF
+                  %th Telefone
+                  %th E-mail
+                  %th Cargo
+                  %th Ação
+              %tbody
+                - @directories.each do |dir|
+                  %tr
+                    %td.col-md-4= dir.name
+                    %td.col-md-2= dir.cpf.format_cpf
+                    %td= dir.telephone
+                    %td= dir.email
+                    %td= dir.job
+                    %td
+                      = link_to "", edit_directory_path(dir), title: "Editar", class: 'btn btn-success glyphicon glyphicon-pencil btn-xs'
+                      = link_to "", directory_path(dir), title: "Remover", method: :delete, class: 'btn btn-danger glyphicon glyphicon-remove btn-xs', data: { confirm: t(:confirm)}

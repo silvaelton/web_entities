@@ -1,55 +1,57 @@
 = simple_form_for @entity do |f|
   .row
     .col-md-6
-      = f.input :name
+      = f.input :name, placeholder: "Insira o nome da entidade"
     .col-md-3
-      = f.input :acronym
+      = f.input :acronym, placeholder: "Insira a sigla"
     .col-md-3
-      = f.input :cnpj, input_html: { class: 'cnpj' }
+      = f.input :cnpj, input_html: { class: 'cnpj' , placeholder: "00.000.000/0000-00"}
   .row
     .col-md-3
-      = f.input :telephone
+      = f.input :telephone, placeholder: 'Somente números'
     .col-md-3
-      = f.input :telephone_optional
+      = f.input :telephone_optional, placeholder: 'Somente números'
     .col-md-3
-      = f.input :celphone
+      = f.input :celphone, placeholder: 'Somente números' 
     .col-md-3
-      = f.input :celphone_optional
+      = f.input :celphone_optional, placeholder: 'Somente números'
   .row
     .col-md-3
-      = f.input :email
+      = f.input :email, placeholder: 'Insira um e-mail válido' 
     .col-md-3
-      = f.input :email_optional
+      = f.input :email_optional, placeholder: "Insira um e-mail válido" 
     .col-md-3
-      = f.input :foundation_date, as: :string, input_html: { class: 'date' }
+      = f.input :foundation_date, as: :string, input_html: { class: 'date', placeholder:'dia/mês/ano'  }
   %hr/
   .row
     .col-md-3 
       = f.association :state, include_blank: "selecione..."
     .col-md-6
-      = f.input :city 
+      = f.input :city , placeholder: 'Insira a cidade onde reside a sede da entidade'
     .col-md-3
-      = f.input :cep 
+      = f.input :cep , input_html: { class: 'cep'}
   .row
     .col-md-3
-      = f.input :address 
+      = f.input :address, placeholder: "Insira o endereço"
     .col-md-3
-      = f.input :complement
+      = f.input :complement, placeholder: "Insira um complemento"
     .col-md-3
-      = f.input :burgh
+      = f.input :burgh, placeholder: "Insira o bairro"
     .col-md-2
       = f.input :number
   .row
     .col-md-12
-      = f.input :reference_point
+      = f.input :reference_point, placeholder: "Insira um ponto de referência"
   %hr/
   .row
     .col-md-3
       = f.input :color, as: :select, collection: Entity::Cadastre.colors.keys, include_blank: false
     .col-md-3
-      = f.input :password_digest
+      = f.input :password_digest, placeholder: "Mínimo de 6 caracteres"
+      - unless f.object.new_record?
+        = f.hint "Deixe em branco caso não queira mudar a senha"
     .col-md-3
-      = f.input :password_confirmation
+      = f.input :password_confirmation, placeholder: "Mínimo de 6 caracteres"
   %hr/
   .row
     .col-md-12

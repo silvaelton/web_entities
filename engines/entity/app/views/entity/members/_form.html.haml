@@ -1,0 +1,66 @@
+= simple_form_for @member do |f|
+  .row
+    .col-md-8
+      = f.input :name, placeholder: "Insira o nome do associado"
+    .col-md-2
+      = f.input :cpf, input_html: { class: 'cpf'}
+    .col-md-2
+      = f.input :rg
+  .row
+    .col-md-2
+      = f.input :born, as: :string, input_html: { class: 'date', placeholder: 'dia/mes/ano', value: f.object.born.present? ? localize(f.object.born) : nil}
+    .col-md-3
+      = f.association :born_state, include_blank: "selecione..."
+    .col-md-7
+      = f.input :born_city, placeholder: 'Somente números'
+
+  %hr/
+  .row
+    .col-md-3
+      = f.input :telephone, placeholder: 'Somente números'
+    .col-md-3
+      = f.input :celphone, placeholder: 'Somente números' 
+    .col-md-3
+      = f.input :email, placeholder: 'Insira um e-mail válido' 
+    .col-md-3
+      = f.input :email_optional, placeholder: "Insira um e-mail válido" 
+  %hr/
+  .row
+    .col-md-3 
+      = f.association :state, include_blank: "selecione..."
+    .col-md-6
+      = f.input :city , placeholder: 'Insira a cidade onde reside a sede da entidade'
+    .col-md-3
+      = f.input :cep , input_html: { class: 'cep'}
+  .row
+    .col-md-9
+      = f.input :address, placeholder: "Insira o endereço"
+    .col-md-3
+      = f.input :complement, placeholder: "Insira um complemento"
+  %hr/
+  .row
+    .col-md-3 
+      = f.association :work_state, include_blank: "selecione..."
+    .col-md-6
+      = f.input :work_city , placeholder: 'Insira a cidade onde reside a sede da entidade'
+    .col-md-3
+      = f.input :work_cep , input_html: { class: 'cep'}
+  .row
+    .col-md-9
+      = f.input :work_address, placeholder: "Insira o endereço"
+    .col-md-3
+      = f.input :work_complement, placeholder: "Insira um complemento"
+  .row
+    .col-md-3
+      = f.input :work_telephone, placeholder: 'Somente números'
+    .col-md-3
+      = f.input :work_telephone_optional, placeholder: 'Somente números'
+  %hr/
+  .row
+    .col-md-3
+      = f.input :situation, as: :select, include_blank: false, collection: Entity::Member.situations.keys
+  %hr/
+  .row
+    .col-md-12
+      = f.button :submit, class: 'btn btn-success', data: { disable_with: t(:disable_with)}
+      = link_to "Voltar para listagem", entity.members_path, data: { disable_with: t(:disable_with)}, class: 'btn btn-default'

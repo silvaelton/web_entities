@@ -1,5 +1,5 @@
 Entity::Engine.routes.draw do
-  root 'cadastres#index'
+  root 'members#index'
 
   resources :cadastres, except: :destroy, path: 'entidade'
   

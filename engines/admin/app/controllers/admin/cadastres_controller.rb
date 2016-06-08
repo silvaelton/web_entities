@@ -34,6 +34,12 @@ module Admin
     end
 
     def update
+
+      unless params[:cadastre][:password_digest].present?
+        params[:cadastre].delete :password_digest
+        params[:cadastre].delete :password_confirmation
+      end
+      
       if @entity.update(set_params)
         flash[:success]
         redirect_to action: :index

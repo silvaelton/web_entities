@@ -1,0 +1,83 @@
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-body
+        .row
+          .col-md-12
+            %h1
+              %b #{@entity.acronym}
+              %br/
+              %small #{@entity.name}
+        %hr/
+        .row  
+          .col-md-12
+            %h3 
+              %b Dados gerais
+        .row  
+          .col-md-12
+            %table.table.table-striped.table-bordered.table-striped
+              %thead
+                %tr 
+                  %th Nome
+                  %th Sigla
+                  %th CNPJ
+                  %th Fundação
+              %tbody
+                %tr
+                  %td= @entity.name
+                  %td= @entity.acronym.upcase
+                  %td= @entity.cnpj.format_cnpj
+                  %td= @entity.foundation_date.strftime("%d/%m/%Y") if @entity.foundation_date.present?
+            %table.table.table-striped.table-bordered.table-striped
+              %thead
+                %tr 
+                  %th Cidade
+                  %th UF
+                  %th Endereço
+                  %th Bairro
+                  %th CEP
+              %tbody
+                %tr
+                  %td= @entity.city
+                  %td.col-md-1= @entity.state.acronym
+                  %td= @entity.address
+                  %td= @entity.burgh
+                  %td= @entity.cep
+        %hr/
+        .row  
+          .col-md-12
+            %h3 
+              %b Diretoria
+        .row  
+          .col-md-12
+            %table.table.table-striped.table-bordered.table-striped
+              %thead
+                %tr 
+                  %th Nome
+                  %th CPF
+                  %th Cargo
+              %tbody
+                - @entity.directories.each do |dir|
+                  %tr
+                    %td.col-md-4= dir.name
+                    %td.col-md-2= dir.cpf.format_obfuscator_cpf
+                    %td.col-md-2= dir.job
+        %hr/
+        .row  
+          .col-md-12
+            %h3 
+              %b Associados
+        .row  
+          .col-md-12
+            %table.table.table-striped.table-bordered.table-striped
+              %thead
+                %tr 
+                  %th Nome
+                  %th CPF
+                  %th Situação
+              %tbody
+                - @entity.members.each do |member|
+                  %tr
+                    %td.col-md-4= member.name
+                    %td.col-md-2= member.cpf.format_obfuscator_cpf
+                    %td.col-md-2= member.situation

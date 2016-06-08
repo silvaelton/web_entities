@@ -8,7 +8,7 @@ module Portal
     end
       
     def show
-      @entities = Entity::Cadastre.find(params[:id])
+      @entity = Entity::Cadastre.find(params[:id])
     end
   end
 end

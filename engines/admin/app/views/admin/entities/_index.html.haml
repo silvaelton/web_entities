@@ -1,0 +1,11 @@
+- @cadastres.each do |cad|
+  %tr
+    %td.col-md-1= cad.id
+    %td= cad.name
+    %td.col-md-2= cad.acronym
+    %td.col-md-2= cad.cnpj.format_cnpj
+    %td.col-md-1
+      - if @list.list_cadastres.find_by_cadastre_id(cad.id).present?
+        = link_to "", list_entity_disabled_path(list_id: @list.id, entity_id: cad.id), class: 'btn btn-xs btn-danger glyphicon glyphicon-remove ', remote: true
+      - else   
+        = link_to "", list_entity_enabled_path(list_id: @list.id, entity_id: cad.id), class: 'btn btn-xs btn-success glyphicon glyphicon-check', remote: true

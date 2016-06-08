@@ -1,0 +1,25 @@
+pt-BR:
+  activerecord:
+    models:
+      'entity/directory': "Membro"
+    attributes:
+      'entity/directory':
+        name: "Nome"
+        cpf: "CPF"
+        rg: "RG"
+        born: "Data de nascimento"
+        born_state: "Estado nascimento"
+        born_city: "Cidade nascimento"
+        telephone: "Telefone"
+        telephone_optional: "Telefone (opcional)"
+        celphone: "Celular"
+        email: "E-mail"
+        state: "Estado"
+        city: "Cidade"
+        cep: "CEP"
+        address: "Endereço completo"
+        complement: "Complemento"
+        job: "Cargo"
+        mandatory_start: "Início do mandato"
+        mandatory_end: "Fim do mandato"
+        bio:  "Sobre"

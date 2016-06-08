@@ -8,4 +8,7 @@
   %body.orange-body
     = render 'layouts/entity/partials/top'
     .container
+      - flash.each do |key, value|
+        .alert{class: "alert-#{key}"}
+          = value
       = yield

@@ -1,0 +1,24 @@
+= simple_form_for @user do |f|
+  .row
+    .col-md-3
+      = f.input :first_name
+    .col-md-3
+      = f.input :last_name
+    .col-md-6
+      = f.input :email
+  .row
+    .col-md-3
+      = f.input :situation, as: :select, collection: Admin::User.situations.keys, include_blank: false
+    .col-md-3
+      = f.input :permission, as: :select, collection: Admin::User.permissions.keys, include_blank: false
+    .col-md-3
+      = f.input :password_digest
+      - unless f.object.new_record?
+        = f.hint "Preencha somente se desejar alterar a senha"
+    .col-md-3
+      = f.input :password_confirmation
+  %hr/
+  .row
+    .col-md-12
+      = f.button :submit, class: 'btn btn-success', data: { disable_with: t(:disable_with)}
+      = link_to 'Voltar para listagem', users_path, data: { disable_with: t(:disable_with)}, class: 'btn btn-default'

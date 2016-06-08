@@ -1,0 +1,38 @@
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-body
+        .row
+          .col-md-12
+            %h1
+              %b #{@list.name}
+              %br/
+              %small #{@list.description}
+        %hr/
+        .row  
+          .col-md-12
+            %h3 
+              %b Entidades
+            %table.table.table-striped.table-bordered.table-striped
+              %tbody
+                %tr
+                  %th Total listado
+                  %th #{@list.list_cadastres.count}
+        %hr/
+        .row  
+          .col-md-12
+            %table.table.table-striped.table-bordered.table-striped
+              %thead
+                %tr 
+                  %th Sigla
+                  %th Nome
+                  %th CNPJ
+                  %th Ação
+              %tbody
+                - @list.list_cadastres.includes(:cadastre).order('entity_cadastres.acronym ASC').each do |list|
+                  %tr
+                    %td.col-md-2= list.cadastre.acronym
+                    %td.col-md-4= list.cadastre.name
+                    %td.col-md-2= list.cadastre.cnpj.format_cnpj
+                    %td.col-md-2
+                      = link_to "visualizar", entity_path(list.cadastre.id)

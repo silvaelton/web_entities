@@ -1,0 +1,44 @@
+.row
+  .col-md-12
+    %h2 
+      %b Listagem de usuários
+
+    = link_to "+ adicionar novo usuário", new_user_path, class: 'btn btn-success btn-xs'
+%br/
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %b Listagem de usuários cadastrados
+      .panel-body
+        .row
+          = simple_form_for url_for, method: :get do |f|
+            .col-md-3
+              = f.input :by_name, label: "Nome", as: :string, input_html: { name:'by_name', value: params[:by_name]}
+            .col-md-3
+              = f.submit "Filtrar", name: nil, class: 'btn btn-primary filter-margin-button btn-sm', data: { disable_with: t(:disable_with)}
+        .row
+          .col-md-12
+            %table.table.table-striped.table-bordered.table-hover
+              %thead
+                %tr
+                  %th Nº
+                  %th Nome
+                  %th E-mail
+                  %th Permissão
+                  %th Situação
+                  %th Data de criação
+                  %th Ação
+              %tbody
+                - @users.each do |user|
+                  %tr
+                    %td= user.id
+                    %td= user.name
+                    %td= user.email
+                    %td= user.permission
+                    %td= user.situation
+                    %td= user.created_at.strftime("%d/%m/%Y")
+                    %td
+                      = link_to "", edit_user_path(user), class: 'btn btn-success glyphicon glyphicon-pencil btn-xs'
+                      = link_to "", user_path(user), method: :delete, class: 'btn btn-danger glyphicon glyphicon-remove btn-xs', data: { confirm: t(:confirm)}

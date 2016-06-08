@@ -1,0 +1,56 @@
+= simple_form_for @directory do |f|
+  .row
+    .col-md-8
+      = f.input :name, placeholder: "Insira o nome do associado"
+    .col-md-2
+      = f.input :cpf, input_html: { class: 'cpf'}
+    .col-md-2
+      = f.input :rg
+  .row
+    .col-md-2
+      = f.input :born, as: :string, input_html: { class: 'date', placeholder: 'dia/mes/ano', value: f.object.born.present? ? localize(f.object.born) : nil}
+    .col-md-3
+      = f.association :born_state, include_blank: "selecione..."
+    .col-md-7
+      = f.input :born_city, placeholder: 'Somente números'
+
+  %hr/
+  .row
+    .col-md-3
+      = f.input :telephone, placeholder: 'Somente números'
+    .col-md-3
+      = f.input :telephone_optional, placeholder: 'Somente números' 
+    .col-md-3
+      = f.input :celphone, placeholder: 'Somente números' 
+    .col-md-3
+      = f.input :email, placeholder: 'Insira um e-mail válido' 
+
+  %hr/
+  .row
+    .col-md-3 
+      = f.association :state, include_blank: "selecione..."
+    .col-md-6
+      = f.input :city , as: :string, placeholder: 'Insira a cidade onde reside a sede da entidade'
+    .col-md-3
+      = f.input :cep , input_html: { class: 'cep'}
+  .row
+    .col-md-9
+      = f.input :address, placeholder: "Insira o endereço"
+    .col-md-3
+      = f.input :complement, placeholder: "Insira um complemento"
+  %hr/
+  .row
+    .col-md-4 
+      = f.input :job, as: :select, collection: Entity::Directory.jobs.keys, include_blank: false
+    .col-md-4 
+      = f.input :mandatory_start, as: :string, input_html: { class: 'date', value: f.object.mandatory_start.present? ? localize(f.object.mandatory_start) : nil}
+    .col-md-4 
+      = f.input :mandatory_end, as: :string, input_html: { class: 'date', value: f.object.mandatory_end.present? ? localize(f.object.mandatory_end) : nil}
+  .row
+    .col-md-12
+      = f.input :bio 
+  %hr/
+  .row
+    .col-md-12
+      = f.button :submit, class: 'btn btn-success', data: { disable_with: t(:disable_with)}
+      = link_to "Voltar para listagem", entity.directories_path, data: { disable_with: t(:disable_with)}, class: 'btn btn-default'

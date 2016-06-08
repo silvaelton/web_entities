@@ -7,6 +7,9 @@ class CreateEntityDirectories < ActiveRecord::Migration
       t.string    :name
       t.string    :cpf
       t.string    :rg 
+      t.date      :born
+      t.integer   :born_state_id
+      t.string    :born_city
       t.integer   :state_id, index: true
       t.string    :city
       t.string    :address

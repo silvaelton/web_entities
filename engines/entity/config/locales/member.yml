@@ -1,0 +1,29 @@
+pt-BR:
+  activerecord:
+    models:
+      'entity/member': "Associado"
+    attributes:
+      'entity/member':
+        name: "Nome"
+        cpf: "CPF"
+        rg: "RG"
+        born: "Data de nascimento"
+        born_state: "Estado nascimento"
+        born_city: "Cidade nascimento"
+        telephone: "Telefone"
+        celphone: "Celular"
+        email: "E-mail"
+        email_optional: "E-mail(opcional)"
+        state: "Estado"
+        city: "Cidade"
+        cep: "CEP"
+        address: "Endereço completo"
+        complement: "Complemento"
+        work_state: "UF trabalho"
+        work_city: "Cidade trabalho"
+        work_cep: "CEP trabalho"
+        work_telephone: "Telefone trabalho"
+        work_address: "Endereço trabalho"
+        work_complement: "Complemento"
+        work_telephone_optional: "Telefone trabalho (opcional)"
+        situation: "Situação"

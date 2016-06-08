@@ -1,0 +1,33 @@
+.row
+  .col-md-12
+    %h2 
+      %b Listagem de listas personalizadas
+
+    = link_to "+ adicionar nova lista", new_list_path, class: 'btn btn-success btn-xs'
+%br/
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %b Listagem de listas 
+      .panel-body
+        .row
+          .col-md-12
+            %table.table.table-striped.table-bordered.table-hover
+              %thead
+                %tr
+                  %th Nº
+                  %th Nome
+                  %th Descrição
+                  %th Ação
+              %tbody
+                - @lists.each do |list|
+                  %tr
+                    %td= list.id
+                    %td= list.name
+                    %td= list.description
+                    %td.col-md-2
+                      = link_to "", list_entities_path(list), title: "Gerenciar lista", class: 'btn btn-primary glyphicon glyphicon-share btn-xs'
+                      = link_to "", edit_list_path(list), title: "Editar", class: 'btn btn-success glyphicon glyphicon-pencil btn-xs'
+                      = link_to "", list_path(list), title: "Remover", method: :delete, class: 'btn btn-danger glyphicon glyphicon-remove btn-xs', data: { confirm: t(:confirm)}

@@ -27,6 +27,7 @@ class CreateEntityMembers < ActiveRecord::Migration
       t.string    :work_city
       t.string    :work_state_id 
       t.string    :work_address
+      t.string    :work_cep
       t.string    :work_complement
       t.string    :work_telephone
       t.string    :work_telephone_optional

@@ -7,17 +7,17 @@
 
 @admin
 
--- cadastro de usuários
+#-- cadastro de usuários
 #-- login & logout
--- atualização de dados & senha
+#-- atualização de dados & senha
 #-- cadastro de entidades
--- cadastro de lista
+#-- cadastro de lista
 
 @entity
 
 -- edição de dados da entidade
 -- cadastro de diretoria
--- cadastro de membros
+#-- cadastro de membros
 #-- login & logout
 
 @portal

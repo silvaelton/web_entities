@@ -1,0 +1,49 @@
+.row
+  .col-md-12
+    %h2 
+      %b Listagem de associados
+
+    = link_to "+ adicionar novo associado", new_member_path, class: 'btn btn-success btn-xs'
+%br/
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %b Listagem de associados à entidade
+          %span.pull-right
+            %b Total listado:
+            #{@members.count}
+      .panel-body
+        .row
+          = simple_form_for url_for, method: :get do |f|
+            .col-md-3
+              = f.input :by_cpf, label: "CPF (somente números)", as: :string, include_blank: 'selecione...', input_html: { name:'by_cpf', value: params[:by_cpf]}
+            .col-md-3
+              = f.input :by_name, label: "Nome", as: :string, include_blank: 'selecione...', input_html: { name:'by_name', value: params[:by_name]}
+            .col-md-3
+              = f.input :by_situation, label: "Situação", as: :select, collection: Entity::Member.situations, selected: params[:by_situation], include_blank: 'selecione...', input_html: { name:'by_situation'}
+            .col-md-3
+              = f.submit "Filtrar", name: nil, class: 'btn btn-primary filter-margin-button btn-sm', data: { disable_with: t(:disable_with)}
+        .row
+          .col-md-12
+            %table.table.table-striped.table-bordered.table-hover
+              %thead
+                %tr
+                  %th Nome
+                  %th CPF
+                  %th Telefone
+                  %th Telefone
+                  %th E-mail
+                  %th Ação
+              %tbody
+                - @members.each do |member|
+                  %tr
+                    %td= member.name
+                    %td= member.cpf.format_cpf if member.cpf.present?
+                    %td= member.telephone
+                    %td= member.email
+                    %td= member.situation
+                    %td
+                      = link_to "", edit_member_path(member), title: "Editar", class: 'btn btn-success glyphicon glyphicon-pencil btn-xs'
+                      = link_to "", member_path(member), title: "Remover", method: :delete, class: 'btn btn-danger glyphicon glyphicon-remove btn-xs', data: { confirm: t(:confirm)}

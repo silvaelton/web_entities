@@ -2,18 +2,20 @@ require_dependency 'admin/application_controller'
 
 module Admin
   class ListsController < ApplicationController
-    
+    before_action :set_list, only: [:edit, :update, :destroy]
+
     def index
+      @lists = Entity::List.all.order(:name)
     end
 
     def new
-      @entity = Entity::Cadastre.new
+      @list = Entity::List.new
     end
 
     def create
-      @entity = Entity::Cadastre.new(set_params)
+      @list = Entity::List.new(set_params)
 
-      if @entity.save
+      if @list.save
         flash[:success] =  t :success
         redirect_to action: :index
       else
@@ -25,17 +27,33 @@ module Admin
     end
 
     def update
+      if @list.update(set_params)
+        flash[:success] = t :success
+        redirect_to action: :index
+      else
+        render action: :edit
+      end
     end
 
     def destroy
+      if @list.destroy
+        flash[:success] = t :success
+      else
+        flash[:danger] = t :danger
+      end
+
+      redirect_to action: :index
+    
     end
 
     private
 
     def set_params
+      params.require(:list).permit(:name, :description, :color)
     end
 
-    def set_entity
+    def set_list
+      @list = Entity::List.find(params[:id])
     end
     
   end
