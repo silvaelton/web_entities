@@ -45,7 +45,7 @@
                     %td= member.telephone
                     %td= member.email
                     %td= member.situation
-                    %td= member.term_date_signature.strftime('%d/%m/%Y')
+                    %td= member.term_date_signature.strftime('%d/%m/%Y') if member.term_date_signature.present?
                     %td
                       = link_to "", member_term_path(member), title: "Emitir termo", class: 'btn btn-primary glyphicon glyphicon-save-file btn-xs', target: "_blank"
                       = link_to "", edit_member_path(member), title: "Editar", class: 'btn btn-success glyphicon glyphicon-pencil btn-xs'
