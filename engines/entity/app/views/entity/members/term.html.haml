@@ -60,14 +60,14 @@
       %span #{@member.cadastre.cep}
       %span ,
       %span.c12 neste ato representado por seu (a) Presidente, conforme Ata de nomeação,  Sr(a)
-      %span #{@member.cadastre.president.name}
+      %span= @member.cadastre.president.name if  @member.cadastre.president.present?
       %span.c12 ,
       %span.c12 portadora da
-      %span cédula de identidade
-      %span nº #{@member.cadastre.president.rg}
-      %span e do
-      %span CPF nº #{@member.cadastre.president.cpf.format_cpf},
-      %span firmado com a OASSEH-DF o
+      %span cédula de identidade nº
+      %span= @member.cadastre.president.rg if  @member.cadastre.president.present?
+      %span , e do CPF nº 
+      %span= @member.cadastre.president.cpf.format_cpf if  @member.cadastre.president.present?
+      %span , firmado com a OASSEH-DF o
       %span TERMO DE PARCERIA Nº #{@member.term_number}.
     %p.c25.c28
       %span
@@ -172,7 +172,7 @@
     %p.c4
       %span.c12 _________________________________________
     %p.c4
-      %span #{@member.cadastre.president.name}
+      %spam= @member.cadastre.president.name if @member.cadastre.present.present?
     %p.c4
       %span #{@member.cadastre.name}
     %p.c1
