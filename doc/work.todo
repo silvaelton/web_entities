@@ -1,29 +1,17 @@
-# To-Do
+1. Local: Cadastro de Entidades e Associados
 
-@geral
+1.1. No momento de cadastrar o associado, deve haver um item final chamado "Termo Declaratório". 
+     1.1.1 Nele, o presidente poderá gerar e imprimir um documento - este aqui - com alguns dados do cadastro do associado e da entidade.
+--1.2 No momento de cadastrar o associado, deve existir dois itens : a."Número do Termo de Parceria" e b. "Data da assinatura"  para que ele possa colocar a numeração e a data da mesma.
+1.3 Após o presidente cadastrar o associado e imprimir o "Termo Declaratório", o nome do associado não ficará visível para publico na listagem. Só ficará público após confirmação usuário admin do Sistema. 
+1.4 O associado poderá verificar a sua situação numa  página - como a de entidades - onde possa colocar o seu CPF para verificação.
+1.5 Verificar funcionamento dos filtros de visualização rápida (
 
-#-- implementar template 
-#-- construir models
 
-@admin
+Urgentes mais brandas,
 
-#-- cadastro de usuários
-#-- login & logout
-#-- atualização de dados & senha
-#-- cadastro de entidades
-#-- cadastro de lista
+1. Local: Sistema Geral
 
-@entity
-
--- edição de dados da entidade
--- cadastro de diretoria
-#-- cadastro de membros
-#-- login & logout
-
-@portal
-
-#-- listagem de entidades
--- visualização de dados da entidade
--- visualização de membros & diretoria da entidade
--- visualização de listagem de listas
--- visualização de lista personalizada
+    --1.1 Remover opção de escolha de cores no sistema.
+    1.2 Opção de exportar as listagens e cadastros para Excel e PDF.
+    1.3 Mudar cor de fundo do Sistema para (HEX: #f3f6ff).

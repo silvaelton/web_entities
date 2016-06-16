@@ -3,7 +3,10 @@ Entity::Engine.routes.draw do
 
   resources :cadastres, except: :destroy, path: 'entidade'
   
-  resources :members,     path: 'membros'
+  resources :members,     path: 'membros' do 
+    get 'term', path: 'termo'
+  end
+  
   resources :directories, path: 'diretoria'
   resources :passwords,   path: 'senha'
   

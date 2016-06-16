@@ -59,6 +59,10 @@
   .row
     .col-md-3
       = f.input :situation, as: :select, include_blank: false, collection: Entity::Member.situations.keys
+    .col-md-3
+      = f.input :term_number, as: :string
+    .col-md-3
+      = f.input :term_date_signature, as: :string, input_html: { class: 'date', value: f.object.term_date_signature.present? ? localize(f.object.term_date_signature) : nil}
   %hr/
   .row
     .col-md-12

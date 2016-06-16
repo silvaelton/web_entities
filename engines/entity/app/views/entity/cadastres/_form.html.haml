@@ -45,8 +45,6 @@
   %hr/
   .row
     .col-md-3
-      = f.input :color, as: :select, collection: Entity::Cadastre.colors.keys, include_blank: false
-    .col-md-3
       = f.input :password_digest, placeholder: "Mínimo de 6 caracteres"
       - unless f.object.new_record?
         = f.hint "Deixe em branco caso não queira mudar a senha"

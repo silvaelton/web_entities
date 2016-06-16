@@ -35,6 +35,7 @@
                   %th Telefone
                   %th Telefone
                   %th E-mail
+                  %th Data do termo
                   %th Ação
               %tbody
                 - @members.each do |member|
@@ -44,6 +45,8 @@
                     %td= member.telephone
                     %td= member.email
                     %td= member.situation
+                    %td= member.term_date_signature.strftime('%d/%m/%Y')
                     %td
+                      = link_to "", member_term_path(member), title: "Emitir termo", class: 'btn btn-primary glyphicon glyphicon-save-file btn-xs'
                       = link_to "", edit_member_path(member), title: "Editar", class: 'btn btn-success glyphicon glyphicon-pencil btn-xs'
                       = link_to "", member_path(member), title: "Remover", method: :delete, class: 'btn btn-danger glyphicon glyphicon-remove btn-xs', data: { confirm: t(:confirm)}

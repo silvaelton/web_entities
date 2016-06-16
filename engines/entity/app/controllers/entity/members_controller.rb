@@ -12,6 +12,10 @@ module Entity
       @members = apply_scopes(current_user.members).all
     end
 
+    def term
+      render layout: 'entity/less-application'
+    end
+
     def new
       @member = current_user.members.new
     end
@@ -56,7 +60,7 @@ module Entity
       params.require(:member).permit(:name, :cpf, :rg, :born, :born_state_id, :born_city, :telephone, :celphone, :email, 
                                      :email_optional, :state_id, :city, :cep, :address, :complement, :work_state_id, 
                                      :work_city, :work_cep, :work_address, :work_complement, :work_telephone,
-                                     :work_telephone_optional, :situation)
+                                     :work_telephone_optional, :situation, :term_date_signature, :term_number)
     end
 
     def set_member
