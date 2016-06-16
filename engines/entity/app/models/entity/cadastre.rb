@@ -21,6 +21,9 @@ module Entity
 
     validate  :password_compare, if: :password_change?
 
+    def president
+      self.directories.where(job: 0).first
+    end
    
     private
 

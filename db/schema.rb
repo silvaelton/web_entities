@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160616143824) do
+ActiveRecord::Schema.define(version: 20160616160625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -137,6 +137,9 @@ ActiveRecord::Schema.define(version: 20160616143824) do
     t.datetime "updated_at",                          null: false
     t.string   "term_number"
     t.date     "term_date_signature"
+    t.integer  "civil_state"
+    t.string   "professional"
+    t.integer  "gender"
   end
 
   add_index "entity_members", ["cadastre_id"], name: "index_entity_members_on_cadastre_id", using: :btree

@@ -9,10 +9,14 @@
   .row
     .col-md-2
       = f.input :born, as: :string, input_html: { class: 'date', placeholder: 'dia/mes/ano', value: f.object.born.present? ? localize(f.object.born) : nil}
-    .col-md-3
+    .col-md-2
       = f.association :born_state, include_blank: "selecione..."
-    .col-md-7
+    .col-md-4
       = f.input :born_city, placeholder: 'Somente números'
+    .col-md-2
+      = f.input :gender, as: :select, collection: Entity::Member.genders.keys, include_blank: false
+    .col-md-2
+      = f.input :civil_state, as: :select, collection: Entity::Member.civil_states.keys, include_blank: false
 
   %hr/
   .row
@@ -41,10 +45,12 @@
   .row
     .col-md-3 
       = f.association :work_state, include_blank: "selecione..."
-    .col-md-6
+    .col-md-4
       = f.input :work_city , placeholder: 'Insira a cidade onde reside a sede da entidade'
-    .col-md-3
+    .col-md-2
       = f.input :work_cep , input_html: { class: 'cep'}
+    .col-md-3
+      = f.input :professional , as: :string
   .row
     .col-md-9
       = f.input :work_address, placeholder: "Insira o endereço"

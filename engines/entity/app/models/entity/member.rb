@@ -10,7 +10,8 @@ module Entity
     scope :by_situation, -> (value) { where(situation: value)}
     
     enum situation: ['regular','irregular','desligado']
-
+    enum gender:  ['masculino', 'feminino']
+    enum civil_state: ['solteiro', 'casado', 'viúvo']
 
 
     validates :name, :rg, :born, :born_state, :born_city, :state,

@@ -13,6 +13,7 @@ module Entity
     end
 
     def term
+      @member  = Entity::Member.find(params[:member_id])
       render layout: 'entity/less-application'
     end
 
@@ -60,7 +61,8 @@ module Entity
       params.require(:member).permit(:name, :cpf, :rg, :born, :born_state_id, :born_city, :telephone, :celphone, :email, 
                                      :email_optional, :state_id, :city, :cep, :address, :complement, :work_state_id, 
                                      :work_city, :work_cep, :work_address, :work_complement, :work_telephone,
-                                     :work_telephone_optional, :situation, :term_date_signature, :term_number)
+                                     :work_telephone_optional, :situation,:gender,:civil_state,:professional,
+                                     :term_date_signature, :term_number)
     end
 
     def set_member
