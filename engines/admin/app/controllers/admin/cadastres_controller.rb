@@ -9,6 +9,11 @@ module Admin
 
     def index
       @entities = apply_scopes(Admin::Cadastre).all.order(:name)
+
+      respond_to do |format|
+        format.html
+        format.csv { send_data @entities.to_csv }
+      end
     end
 
     def show

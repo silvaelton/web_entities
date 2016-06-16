@@ -18,8 +18,11 @@
               = f.input :by_cnpj, label: "CNPJ (somente números)", as: :string, include_blank: 'selecione...', input_html: { name:'by_cnpj', value: params[:by_cnpj]}
             .col-md-3
               = f.input :by_acronym, label: "Sigla", as: :string, include_blank: 'selecione...', input_html: { name:'by_acronym', value: params[:by_acronym]}
-            .col-md-3
+            .col-md-1
               = f.submit "Filtrar", name: nil, class: 'btn btn-primary filter-margin-button btn-sm', data: { disable_with: t(:disable_with)}
+            .col-md-3
+              = link_to "Exportar em Excel", url_for(format: :csv), class: 'btn btn-success btn-sm filter-margin-button'
+              
         .row
           .col-md-12
             %table.table.table-striped.table-bordered.table-hover
