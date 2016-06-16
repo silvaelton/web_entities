@@ -7,6 +7,7 @@ module Entity
     def edit
     end
     
+
     def update
 
       unless params[:cadastre][:password_digest].present?

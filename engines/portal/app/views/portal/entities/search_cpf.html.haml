@@ -1,0 +1,35 @@
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-body
+        .row
+          .col-md-12
+            %h1
+              %b Pequisa por CPF
+        %hr/
+        .row
+          = simple_form_for url_for, method: :get do |f|
+            .col-md-3
+              = f.input :by_cpf, label: "CPF (somente números)", as: :string, include_blank: 'selecione...', input_html: { name:'by_cpf', value: params[:by_cpf]}
+            .col-md-3
+              = f.submit "Pesquisar", name: nil, class: 'btn btn-primary filter-margin-button btn-sm', data: { disable_with: t(:disable_with)}
+        %hr/
+        - if @member.present?
+          .row
+            .col-md-12
+              %table.table.table-striped.table-bordered
+                %thead
+                  %tr
+                    %th Nome completo
+                    %th CPF
+                    %th RG
+                    %th Associação
+                    %th Situação
+
+                %tbody
+                  %tr
+                    %td= @member.name
+                    %td= @member.cpf.format_obfuscator_cpf
+                    %td= @member.rg
+                    %td= link_to "#{@member.cadastre.name} / #{@member.cadastre.acronym}", portal.entity_path(@member.cadastre)
+                    %td= @member.situation

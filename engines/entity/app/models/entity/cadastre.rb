@@ -5,6 +5,8 @@ module Entity
     has_many :members
     has_many :directories
     
+    scope :by_cnpj, -> (cnpj) {where(cnpj: cnpj)}    
+    scope :by_acronym, -> (acronym) {where("acronym ILIKE '%#{acronym}%'")}    
     enum color: ['azul','amarelo','verde','vermelho','laranja']
     
     validates :name, :acronym, :telephone, presence: true
