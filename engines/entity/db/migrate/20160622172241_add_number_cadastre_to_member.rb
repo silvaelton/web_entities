@@ -13,6 +13,7 @@ class AddNumberCadastreToMember < ActiveRecord::Migration
     add_column :entity_members, :income, :string
     add_column :entity_members, :typology, :string
     add_column :entity_members, :date, :date
+    add_column :entity_cadastres, :convenant_number, :string
 
   end
 end

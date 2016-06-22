@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20160622172241) do
     t.string   "last_signed_in_at"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+    t.string   "convenant_number"
   end
 
   add_index "entity_cadastres", ["state_id"], name: "index_entity_cadastres_on_state_id", using: :btree

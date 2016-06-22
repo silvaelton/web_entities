@@ -29,9 +29,10 @@
               %thead
                 %tr
                   %th Nº
-                  %th Nome
                   %th CNPJ
+                  %th Nome
                   %th Sigla
+                  %th Nº Convênio
                   %th Qtd. Assoc.
                   %th Ação
               %tbody
@@ -39,9 +40,10 @@
                   %tr
                     %td.col-md-1= ent.id
                     %td.col-md-2= ent.cnpj.format_cnpj
-                    %td.col-md-4= ent.name.upcase
+                    %td.col-md-2= ent.name.upcase
                     %td.col-md-2= ent.acronym
-                    %td.col-md-1
+                    %td.col-md-2= ent.convenant_number
+                    %td.col-md-1= ent.members.count
                     %td.col-md-2
                       = link_to "", cadastre_path(ent), class: 'btn btn-success btn-xs glyphicon glyphicon-zoom-in'
                       = link_to "", edit_cadastre_path(ent), class: 'btn btn-primary btn-xs glyphicon glyphicon-pencil'

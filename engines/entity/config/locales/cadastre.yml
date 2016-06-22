@@ -25,3 +25,4 @@ pt-BR:
         color: "Cor"
         password_digest: "Senha"
         password_confirmation: "Confirmação da senha"
+        convenant_number: "Nº Convênio"

@@ -31,7 +31,7 @@ module Entity
                                        :email_optional, :foundation_date, :state_id, 
                                        :city, :cep, :address, :complement, :burgh, :number,
                                        :reference_point, :color, :password_digest, 
-                                       :password_confirmation)
+                                       :password_confirmation,:convenant_number)
 
     end
 
