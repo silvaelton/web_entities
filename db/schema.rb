@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160616160625) do
+ActiveRecord::Schema.define(version: 20160622172241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -124,7 +124,6 @@ ActiveRecord::Schema.define(version: 20160616160625) do
     t.string   "nis"
     t.string   "special_condition_flag"
     t.string   "special_condition"
-    t.string   "income"
     t.string   "work_city"
     t.string   "work_state_id"
     t.string   "work_address"
@@ -132,14 +131,25 @@ ActiveRecord::Schema.define(version: 20160616160625) do
     t.string   "work_complement"
     t.string   "work_telephone"
     t.string   "work_telephone_optional"
-    t.integer  "situation",               default: 0
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.integer  "situation",                 default: 0
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.string   "term_number"
     t.date     "term_date_signature"
     t.integer  "civil_state"
     t.string   "professional"
     t.integer  "gender"
+    t.string   "number_cadastre"
+    t.string   "marriage_status"
+    t.string   "dependents_number"
+    t.string   "special_dependents_number"
+    t.string   "spouse_rg"
+    t.string   "spouse_cpf"
+    t.string   "spouse_name"
+    t.string   "income_family"
+    t.string   "income"
+    t.string   "typology"
+    t.date     "date"
   end
 
   add_index "entity_members", ["cadastre_id"], name: "index_entity_members_on_cadastre_id", using: :btree

@@ -24,5 +24,21 @@ module Entity
 
     validates :cpf, cpf: true, presence: true
     validates_uniqueness_of :cpf, scope: :cadastre
+
+    validates :spouse_name, :spouse_rg, :spouse_cpf, presence: true, if: :marriege?
+    validates :spouse_cpf, cpf: true, if: :marriege?
+    validate  :spouse_unique_cpf, if: :marriege?
+
+    private
+
+    def marriege?
+      self.casado?
+    end
+
+    def spouse_unique_cpf
+      if self.cpf == self.spouse_cpf
+        errors.add(:spouse_cpf, "O cpf do conjugê não pode ser igual ao cpf do membro")
+      end
+    end
   end
 end

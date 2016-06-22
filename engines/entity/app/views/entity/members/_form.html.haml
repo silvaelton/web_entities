@@ -16,8 +16,19 @@
     .col-md-2
       = f.input :gender, as: :select, collection: Entity::Member.genders.keys, include_blank: false
     .col-md-2
-      = f.input :civil_state, as: :select, collection: Entity::Member.civil_states.keys, include_blank: false
-
+      = f.input :civil_state, as: :select, collection: Entity::Member.civil_states.keys, include_blank: false, input_html: { id: "civil_state_id"}
+  .row
+    #marriege{style: "display: #{f.object.casado? ? 'block' : 'none'}"}
+      .col-md-3
+        = f.input :spouse_name, as: :string
+      .col-md-2
+        = f.input :spouse_rg, as: :string
+      .col-md-2
+        = f.input :spouse_cpf, as: :string, input_html: { class: 'cpf'}
+    .col-md-2
+      = f.input :dependents_number, as: :string
+    .col-md-3
+      = f.input :special_dependents_number, as: :string
   %hr/
   .row
     .col-md-3
@@ -61,16 +72,32 @@
       = f.input :work_telephone, placeholder: 'Somente números'
     .col-md-3
       = f.input :work_telephone_optional, placeholder: 'Somente números'
+    .col-md-2
+      = f.input :income, placeholder: 'R$ 0.00'
+    .col-md-2
+      = f.input :income_family, placeholder: 'R$ 0.00'
+    .col-md-2
+      = f.input :typology
   %hr/
   .row
     .col-md-3
       = f.input :situation, as: :select, include_blank: false, collection: Entity::Member.situations.keys
     .col-md-3
-      = f.input :term_number, as: :string
-    .col-md-3
-      = f.input :term_date_signature, as: :string, input_html: { class: 'date', value: f.object.term_date_signature.present? ? localize(f.object.term_date_signature) : nil}
+      = f.input :date, as: :string, input_html: { class: 'date', value: f.object.date.present? ? localize(f.object.date) : nil} 
+    
   %hr/
   .row
     .col-md-12
       = f.button :submit, class: 'btn btn-success', data: { disable_with: t(:disable_with)}
       = link_to "Voltar para listagem", entity.members_path, data: { disable_with: t(:disable_with)}, class: 'btn btn-default'
+
+:javascript 
+  $(document).ready(function(){
+    $('#civil_state_id').on('change', function() {
+      if($(this).val() == "casado") {
+        $('#marriege').fadeIn();
+      } else {
+        $('#marriege').fadeOut();
+      }
+    })
+  })

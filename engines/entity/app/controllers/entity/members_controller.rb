@@ -62,7 +62,9 @@ module Entity
                                      :email_optional, :state_id, :city, :cep, :address, :complement, :work_state_id, 
                                      :work_city, :work_cep, :work_address, :work_complement, :work_telephone,
                                      :work_telephone_optional, :situation,:gender,:civil_state,:professional,
-                                     :term_date_signature, :term_number)
+                                     :term_date_signature, :term_number, :spouse_name, :spouse_rg, :spouse_cpf, 
+                                     :dependents_number, :special_dependents_number, :income, :income_family, 
+                                     :typology, :date  )
     end
 
     def set_member
