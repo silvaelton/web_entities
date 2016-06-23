@@ -19,12 +19,15 @@
       = f.input :civil_state, as: :select, collection: Entity::Member.civil_states.keys, include_blank: false, input_html: { id: "civil_state_id"}
   .row
     #marriege{style: "display: #{f.object.casado? ? 'block' : 'none'}"}
-      .col-md-3
+      .col-md-6
         = f.input :spouse_name, as: :string
       .col-md-2
         = f.input :spouse_rg, as: :string
       .col-md-2
         = f.input :spouse_cpf, as: :string, input_html: { class: 'cpf'}
+      .col-md-2
+        = f.input :marriage_status, as: :string
+  .row
     .col-md-2
       = f.input :dependents_number, as: :string
     .col-md-3

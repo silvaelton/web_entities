@@ -2,6 +2,8 @@
   .col-md-12
     %h2 
       %b Cadastro de associado
+      %span.pull-right
+        %b Nº #{Entity::Member.all.order(:id).last.id + 1}
 %br/
 .row
   .col-md-12
