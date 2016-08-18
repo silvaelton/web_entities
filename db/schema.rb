@@ -93,15 +93,12 @@ ActiveRecord::Schema.define(version: 20160622172241) do
   end
 
   create_table "entity_lists", force: :cascade do |t|
-    t.text     "cadastre_id", default: [],              array: true
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.integer  "color",       default: 0
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
-
-  add_index "entity_lists", ["cadastre_id"], name: "index_entity_lists_on_cadastre_id", using: :btree
 
   create_table "entity_members", force: :cascade do |t|
     t.integer  "cadastre_id"
@@ -125,6 +122,7 @@ ActiveRecord::Schema.define(version: 20160622172241) do
     t.string   "nis"
     t.string   "special_condition_flag"
     t.string   "special_condition"
+    t.string   "income"
     t.string   "work_city"
     t.string   "work_state_id"
     t.string   "work_address"
@@ -148,7 +146,6 @@ ActiveRecord::Schema.define(version: 20160622172241) do
     t.string   "spouse_cpf"
     t.string   "spouse_name"
     t.string   "income_family"
-    t.string   "income"
     t.string   "typology"
     t.date     "date"
   end

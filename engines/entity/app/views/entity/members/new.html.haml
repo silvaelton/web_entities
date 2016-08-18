@@ -3,7 +3,7 @@
     %h2 
       %b Cadastro de associado
       %span.pull-right
-        %b Nº #{Entity::Member.all.order(:id).last.id + 1}
+        %b Nº #{Entity::Member.preview_number}
 %br/
 .row
   .col-md-12

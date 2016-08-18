@@ -29,6 +29,12 @@ module Entity
     validates :spouse_cpf, cpf: true, if: :marriege?
     validate  :spouse_unique_cpf, if: :marriege?
 
+
+    def self.preview_number
+      max = (self.all.present?) ? self.all.maximum(:id) : 0
+      max + 1
+    end
+
     private
 
     def marriege?
