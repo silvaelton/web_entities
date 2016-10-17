@@ -12,7 +12,7 @@
     .col-md-2
       = f.association :born_state, include_blank: "selecione..."
     .col-md-4
-      = f.input :born_city, placeholder: 'Somente números'
+      = f.input :born_city, placeholder: 'Informe a cidade'
     .col-md-2
       = f.input :gender, as: :select, collection: Entity::Member.genders.keys, include_blank: false
     .col-md-2

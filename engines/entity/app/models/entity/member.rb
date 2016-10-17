@@ -8,11 +8,12 @@ module Entity
     scope :by_cpf, -> (value) { where(cpf: value)}
     scope :by_name, -> (value) { where("name ILIKE '%#{value}%'")}
     scope :by_situation, -> (value) { where(situation: value)}
-    
-    enum situation: ['regular','irregular','desligado']
-    enum gender:  ['masculino', 'feminino']
-    enum civil_state: ['solteiro', 'casado', 'viúvo']
 
+    scope :allows, -> { where(situation: 0)}
+    
+    enum situation: ['regular_publicado','irregular','desligado', 'regular']
+    enum gender:  ['masculino', 'feminino']
+    enum civil_state: ['solteiro', 'casado', 'viúvo', 'divorciado', 'separado', 'união_estável']
 
     validates :name, :rg, :born, :born_state, :born_city, :state,
               :city, :cep, :address, :work_state,

@@ -76,7 +76,7 @@
                   %th CPF
                   %th Situação
               %tbody
-                - @entity.members.each do |member|
+                - @entity.members.allows.each do |member|
                   %tr
                     %td.col-md-4= member.name
                     %td.col-md-2= member.cpf.format_obfuscator_cpf
