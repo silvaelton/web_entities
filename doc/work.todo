@@ -10,5 +10,5 @@
         
 
 3. Alterações Gerais:
-  ☐ a. Após o presidente da Associação cadastrar o associado por meio do "Formulário de Adição de Associados", ele não deve aparecer na lista oficial de entidades;
+  ✔ a. Após o presidente da Associação cadastrar o associado por meio do "Formulário de Adição de Associados", ele não deve aparecer na lista oficial de entidades; @done (16-10-17 17:19)
        - Para que o associado possa aparecer, é preciso que um outro usuário específico permita a sua publicação. 

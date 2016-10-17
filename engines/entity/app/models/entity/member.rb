@@ -11,7 +11,7 @@ module Entity
 
     scope :allows, -> { where(situation: 0)}
     
-    enum situation: ['regular_publicado','irregular','desligado', 'regular']
+    enum situation: ['regular_e_publicado','irregular','desligado', 'regular']
     enum gender:  ['masculino', 'feminino']
     enum civil_state: ['solteiro', 'casado', 'viúvo', 'divorciado', 'separado', 'união_estável']
 
